@@ -8,9 +8,9 @@
 import Kingfisher
 import SwiftUI
 
-//let screenSize = UIScreen.main.bounds
-//let screenWidth = screenSize.width
-//let screenHeight = screenSize.height
+// let screenSize = UIScreen.main.bounds
+// let screenWidth = screenSize.width
+// let screenHeight = screenSize.height
 
 func simpleSuccess() {
     let generator = UINotificationFeedbackGenerator()
@@ -29,22 +29,21 @@ struct GestureDemoView: View {
                 self.viewState = value.translation
                 let width = value.translation.width
                 
-                let startX = value.startLocation.x
+                // let startX = value.startLocation.x
 //                let startY = value.startLocation.y
 //                let screenWidth = UIScreen.main.bounds.width
 //                let screenHeight = UIScreen.main.bounds.height
-                let rangeX: ClosedRange<CGFloat> = screenWidth-50 ... screenWidth
+                //  let rangeX: ClosedRange<CGFloat> = screenWidth-50 ... screenWidth
 //                let rangeY: ClosedRange<CGFloat> = screenHeight-150 ... screenHeight
                 
 //                if rangeX.contains(startX) && width < 0  {
 //                    transationDis = value.translation.width
 //                }
                 if width < -120 && abs(value.translation.height) < 50 {
-                    withAnimation(.easeInOut(duration: 0.5 )) {
+                    withAnimation(.easeInOut(duration: 0.5)) {
                         offSetX = UIScreen.main.bounds.width + width
                     }
                 }
-            
             }
             .onEnded { value in
                 
@@ -64,39 +63,36 @@ struct GestureDemoView: View {
 //                        showTabs = false
 //                    }
 //                }
-                if value.predictedEndTranslation.width > screenWidth / 2 && value.predictedEndTranslation.height < screenHeight / 2 {
+                if value.predictedEndTranslation.width > screenWidth / 2 && value.predictedEndTranslation.height < screenHeight / 2
+                {
                     print("left  swipe")
-                                        self.viewState = .zero
-                                        
-                                    }
-                                    else if value.predictedEndTranslation.width < -screenWidth / 2 && value.predictedEndTranslation.height > -screenHeight / 2{
-                                        print("right  swipe")
-                                        withAnimation(.interactiveSpring()) {
-                                                                offSetX = 0
-                                            
-                                                            }
-                                        self.viewState = .zero
-                                        simpleSuccess()
-                                    }
+                    self.viewState = .zero
+                }
+                else if value.predictedEndTranslation.width < -screenWidth / 2 && value.predictedEndTranslation.height > -screenHeight / 2
+                {
+                    print("right  swipe")
+                    withAnimation(.interactiveSpring()) {
+                        offSetX = 0
+                    }
+                    self.viewState = .zero
+                    simpleSuccess()
+                }
                                     
-                                    else {
-                                        if self.viewState.width < 0{
-                                            
-                                        }
-                                        withAnimation(.interactiveSpring()) {
-                                                               offSetX = UIScreen.main.bounds.width
+                else {
+                    if self.viewState.width < 0 {}
+                    withAnimation(.interactiveSpring()) {
+                        offSetX = UIScreen.main.bounds.width
 //                                            simpleSuccess()
-                                                           }
-                                        self.viewState = .zero
-                                    }
-                
-                
+                    }
+                    self.viewState = .zero
+                }
             }
     }
 
     var url: URL {
         URL(string: "https://raw.githubusercontent.com/onevcat/Kingfisher-TestImages/master/DemoAppImage/Loading/kingfisher-1.jpg")!
     }
+
     private var blackWhite = false
     private var forceTransition = true
 //    let processor = DownsamplingImageProcessor(size: imageView.bounds.size)
@@ -121,7 +117,7 @@ struct GestureDemoView: View {
                 .resizable()
                 
                 .aspectRatio(contentMode: .fill)
-                .frame( width:UIScreen.main.bounds.width, height:UIScreen.main.bounds.height)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
 //                .scaledToFit()
                 
                 .ignoresSafeArea()
@@ -130,35 +126,32 @@ struct GestureDemoView: View {
                 .blur(radius: 50)
 
             VisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialDark))
-                            .edgesIgnoringSafeArea(.all)
-            VStack{
+                .edgesIgnoringSafeArea(.all)
+            VStack {
                 Text("sdsds")
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(.secondary)
                     .frame(width: 320, height: 320)
-            } .shadow(color: .red, radius: 2)
+            }.shadow(color: .red, radius: 2)
                 
-           
 //            NavigationView {
 //
-////                Text("Hello world")
-////                    .navigationTitle("Hello")
+                ////                Text("Hello world")
+                ////                    .navigationTitle("Hello")
 //
-////                    .border(Color.red)
-////                    .shadow(radius: 5)
-////                    .frame(width: 320, height: 320)
+                ////                    .border(Color.red)
+                ////                    .shadow(radius: 5)
+                ////                    .frame(width: 320, height: 320)
 //            }
-            .opacity(offSetX / UIScreen.main.bounds.width)
+                .opacity(offSetX / UIScreen.main.bounds.width)
 //            .offset(x: -(UIScreen.main.bounds.width-offSetX)/3, y: 0)
-            .scaleEffect(offSetX / UIScreen.main.bounds.width)
-            .animation(.easeInOut(duration: 0.8))
+                .scaleEffect(offSetX / UIScreen.main.bounds.width)
+                .animation(.easeInOut(duration: 0.3))
             
-            
-
             VStack {
                 Tabs(showTabs: $showTabs)
                     .offset(x: offSetX, y: 0)
-                .zIndex(1)
+                    .zIndex(1)
                 
                 Text("test")
                     .padding(.bottom, 45)
@@ -170,7 +163,7 @@ struct GestureDemoView: View {
 //        .gesture(gesture)
         .onChange(of: showTabs) { _ in
             if !showTabs {
-                withAnimation(.interactiveSpring()){
+                withAnimation(.interactiveSpring()) {
                     offSetX = UIScreen.main.bounds.width
                 }
             }
@@ -198,9 +191,7 @@ struct Tabs: View {
         }
         .overlay(alignment: .topTrailing) {
             Button("dismiss") {
-                
-                    showTabs = false
-                
+                showTabs = false
             }
             .buttonStyle(.bordered)
             .padding(.vertical, 100)
@@ -215,6 +206,7 @@ struct GestureDemoView_Previews: PreviewProvider {
         GestureDemoView()
     }
 }
+
 struct VisualEffectView: UIViewRepresentable {
     var effect: UIVisualEffect?
     func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView { UIVisualEffectView() }

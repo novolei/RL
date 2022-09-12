@@ -16,7 +16,7 @@ struct CenterView: View {
                             .frame(width: 320, height: 320)
                         .foregroundColor(.green)
                         
-                        ForEach(1 ..< 10 ,id:\.self) { id in
+                        ForEach(1 ..< 100 ,id:\.self) { id in
                             Text(String(id))
                                 .fontWeight(.light)
                                 .foregroundColor(.white.opacity(0.95))

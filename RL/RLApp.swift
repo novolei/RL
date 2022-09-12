@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct RLApp: App {
+    @StateObject var model = Model()
+    
     var body: some Scene {
         WindowGroup {
-            SwipeNavigationHome()
+            RootView()
+                .environmentObject(model)
         }
     }
 }
