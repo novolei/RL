@@ -38,6 +38,7 @@ struct RootView: View {
         }
     }
     
+    
     var body: some View {
         ZStack {
             GeometryReader { proxy in
@@ -71,34 +72,37 @@ struct RootView: View {
                 .ignoresSafeArea()
             NavigationView {
                 VStack(alignment: .leading, spacing: 0) {
-                    TabView(selection: $selection) {
+                    TabView(selection: $currentTab) {
                         homeView
-                            .tabItem {
-                                Item(type: .chat, selection: selection)
-                            }
-                            .tag(ItemType.chat.rawValue)
+//                            .tabItem {
+//                                Item(type: .chat, selection: selection)
+//                            }
+//                            .tag(ItemType.chat.rawValue)
+                            .tag(Tabes.Home)
                         
                         contactView
-                            .tabItem {
-                                Item(type: .contact, selection: selection)
-                            }
-                            .tag(ItemType.contact.rawValue)
+//                            .tabItem {
+//                                Item(type: .contact, selection: selection)
+//                            }
+//                            .tag(ItemType.contact.rawValue)
+                            .tag(Tabes.Home)
                         
                         discoverView
-                            .tabItem {
-                                Item(type: .discover, selection: selection)
-                            }
-                            .tag(ItemType.discover.rawValue)
+//                            .tabItem {
+//                                Item(type: .discover, selection: selection)
+//                            }
+                            .tag(Tabes.Liked)
                         
                         meView
-                            .tabItem {
-                                Item(type: .me, selection: selection)
-                            }
-                            .tag(ItemType.me.rawValue)
+//                            .tabItem {
+//                                Item(type: .me, selection: selection)
+//                            }
+                            .tag(Tabes.Profile)
                     }
                     .navigationBarBackButtonHidden(true)
                     .navigationBarHidden(itemType.isNavigationBarHidden(selection: selection))
-                    .navigationBarTitle(itemType.title, displayMode: .inline)
+//                    .navigationBarTitle(itemType.title, displayMode: .inline)
+                    
                     .navigationBarItems(trailing: itemType.navigationBarTrailingItems(selection: selection))
                     
                     .safeAreaInset(edge: .bottom, spacing: 0) {
@@ -130,7 +134,7 @@ struct RootView: View {
                                                     .opacity(currentTab == tab ? 1 : 0)
                                             )
                                             .frame(maxWidth: .infinity)
-                                            .foregroundColor(currentTab == tab ? Color.white.opacity(0.64) : Color.black.opacity(0.3))
+                                            .foregroundColor(currentTab == tab ? Color.green.opacity(0.64) : Color.black.opacity(0.3))
                                     }
                                     .padding(.top, 15)
                                 }
@@ -144,6 +148,7 @@ struct RootView: View {
                     }
                 }
             }
+            .navigationBarTitle(tabTitle, displayMode: .inline)
         }
     }
 }

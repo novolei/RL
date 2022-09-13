@@ -85,11 +85,15 @@ struct MainEntry: View {
 
                                     .background(selectIdx == index ? Color.black.opacity(0.1) : Color.clear)
                                     .contentShape(Rectangle())
-            
+
 //                                    .onTapGesture {
 //                                        selectIdx = Int32(index)
 //                                }
                             }
+                            .navigationBarTitle("")    // <-- you add this line
+                                .navigationBarHidden(true)
+                                .navigationBarBackButtonHidden(true)
+                                //.edgesIgnoringSafeArea(.all)
                         }
                         //                    .background(.red)
                     }

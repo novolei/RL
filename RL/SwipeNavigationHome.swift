@@ -33,10 +33,10 @@ struct SwipeNavigationHome: View {
     @State var appear = false
     @State var appearBackground = false
     @Environment(\.presentationMode) var presentationMode
-    
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var model: Model
     var url: URL {
-        URL(string: "https://t7.baidu.com/it/u=2478304529,1778129966&fm=193&f=GIF")!
+        URL(string: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.soutu123.com%2Fback_pic%2F04%2F06%2F11%2F33580f081a7b447.jpg%21%2Ffw%2F700%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fpic.soutu123.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1665636366&t=8e7ec3962f2281774ff3ce4056a76d13")!
     }
     private var blackWhite = false
     private var forceTransition = true
@@ -48,7 +48,7 @@ struct SwipeNavigationHome: View {
         GeometryReader { proxy in
             ZStack(alignment: .top) {
                 KFImage(url)
-                    .setProcessor(blackWhite ? BlackWhiteProcessor() : DefaultImageProcessor())
+//                    .setProcessor(blackWhite ? BlackWhiteProcessor() : DefaultImageProcessor())
                     .onSuccess { r in
                         print("suc: \(r)")
                     }
@@ -63,21 +63,45 @@ struct SwipeNavigationHome: View {
                     .forceTransition(forceTransition)
                     .resizable()
                     
-                    .aspectRatio(contentMode: .fill)
+//                    .aspectRatio(contentMode: .fit)
                     .frame( width:UIScreen.main.bounds.width, height:UIScreen.main.bounds.height)
-    //                .scaledToFit()
+                    .scaledToFit()
                     
                     .ignoresSafeArea()
                     
-                    .opacity(appear ? 0.63 : 0)
-                    .blur(radius: 50)
+                    .opacity(appear ? 0.63 : 0.7)
+                    .blur(radius: 5)
 
                 
                 VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark)
                     .ignoresSafeArea()
+                ZStack {
+                    HStack(alignment: .center) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "chevron.left")
+                                .font(.title3)
+                                .foregroundColor(.white)
+                        }
+
+                        
+                        Spacer()
+                        
+                        Image(systemName: "gear")
+                            .font(.title3)
+                            .foregroundColor(.white)
+                        
+                    }.padding()
+                    Text("chatUser.name")
+                        .font(.custom(customFont, size: 16))
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                }
+                .padding(.horizontal,5)
     //            VisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialLight))
     //                            .edgesIgnoringSafeArea(.all)
-                CenterView(activeView: activeView)
+                CenterView(activeView: .center)
                     .scaleEffect(activeView == .center && viewState.width == .zero ? 1 :  0.85)
     //                .opacity(activeView == .center ? (viewState.width == .zero ? 1 : (0.5 - abs(viewState.width/screenWidth))) : 0)
                     .opacity(activeView == .center && viewState.width == .zero ? 1 :  0)
@@ -110,7 +134,9 @@ struct SwipeNavigationHome: View {
             }
 //            .offset(y: appear ? 0 : proxy.size.height)
             
-            
+            .navigationTitle("")
+            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden()
             .gesture(
                 
                 (self.activeView == currentView.center) ?
@@ -128,6 +154,7 @@ struct SwipeNavigationHome: View {
 //                            simpleSuccess()
                             self.viewState = .zero
                             print("left trans")
+                            simpleSuccess()
                             presentationMode.wrappedValue.dismiss()
                             
                         }
