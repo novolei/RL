@@ -12,7 +12,7 @@ import SwiftUI
 class AuthViewModel: ObservableObject {
     @ObservedObject var userSessionManager = UserSessionManager.shared
     static let shared = AuthViewModel()
-    
+//    @Published var back_image:
     var userId = ""
     private var tempCurrentUser: User?
     

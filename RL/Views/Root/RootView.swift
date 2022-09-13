@@ -10,6 +10,8 @@ import SwiftUI
 struct RootView: View {
 //    @ObservedObject var model = RootViewModel()
     @State private var selection: Int = 0
+    @EnvironmentObject var imagePicker:ImagePicker
+    
     private var itemType: ItemType {
         ItemType(rawValue: selection)!
     }
@@ -38,7 +40,6 @@ struct RootView: View {
         }
     }
     
-    
     var body: some View {
         ZStack {
             GeometryReader { proxy in
@@ -58,16 +59,27 @@ struct RootView: View {
                 //                    .forceTransition(forceTransition)
                 //                    .resizable()
                
+                if let image = imagePicker.image {
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: proxy.size.width, height: proxy.size.height)
+                        .ignoresSafeArea()
+//                        .opacity(0.63)
+                        .blur(radius: 3)
+                }
+                else{
                     Image("Background 3")
-                        .aspectRatio(contentMode: .fill)
+                        .resizable()
+                        .scaledToFill()
                         .frame(width: proxy.size.width, height: proxy.size.height)
                         //                .scaledToFit()
                         .ignoresSafeArea()
                         .opacity(0.63)
                         .blur(radius: 50)
                 }
+            }
           
-            
             VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark)
                 .ignoresSafeArea()
             NavigationView {
@@ -107,9 +119,7 @@ struct RootView: View {
                     
                     .safeAreaInset(edge: .bottom, spacing: 0) {
                         VStack(alignment: .leading, spacing: 0) {
-                           
                             HStack(spacing: 0) {
-                                
                                 ForEach(Tabes.allCases, id: \.self) { tab in
 
                                     Button {

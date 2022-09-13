@@ -14,6 +14,7 @@ struct LoginView: View {
     @State private var showingAlert = false
     let viewModel = AuthViewModel.shared
     @State private var showPassword: Bool = false
+    @EnvironmentObject var imagePicker: ImagePicker
     
     var body: some View {
         ZStack {
@@ -22,13 +23,25 @@ struct LoginView: View {
             NavigationView {
                 ZStack {
                     GeometryReader { proxy in
-                        Image("Background 3")
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: proxy.size.width, height: proxy.size.height)
-                            //                .scaledToFit()
-                            .ignoresSafeArea()
-                            .opacity(0.63)
-                            .blur(radius: 50)
+                        if let image = imagePicker.image {
+                            image
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: proxy.size.width, height: proxy.size.height)
+//                                .ignoresSafeArea()
+//                                .opacity(0.63)
+                                .blur(radius: 3)
+                        }
+                        else{
+                            Image("Background 3")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: proxy.size.width, height: proxy.size.height)
+                                //                .scaledToFit()
+                                .ignoresSafeArea()
+                                .opacity(0.63)
+                                .blur(radius: 21)
+                        }
                     }
                     
                     VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark)
@@ -40,7 +53,7 @@ struct LoginView: View {
                             .frame(width: 220, height: 120)
                             .clipShape(Circle())
                             .shadow(radius: 3)
-                            .padding(.top, 66)
+                            .padding(.top, 77)
                             .padding(.bottom, 22)
                         
                         VStack(spacing: 20) {

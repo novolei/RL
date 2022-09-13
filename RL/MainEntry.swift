@@ -16,7 +16,7 @@ struct MainEntry: View {
     @AppStorage("showAccount") var showAccount = false
     @AppStorage("isLogged") var isLogged = false
     @State private var contentSize: CGSize = .zero
-    @StateObject var imagePicker = ImagePicker()
+    @EnvironmentObject var imagePicker:ImagePicker
     @EnvironmentObject var model: Model
     @State var show = false
     @State var showStatusBar = true
@@ -55,7 +55,7 @@ struct MainEntry: View {
                     if let image = imagePicker.image {
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
+                            .scaledToFill()
                             .frame(width: proxy.size.width, height: proxy.size.height)
                             //                .scaledToFit()
                             .ignoresSafeArea()
@@ -63,7 +63,8 @@ struct MainEntry: View {
                             .blur(radius: 50)
                     } else {
                         Image("Background 3")
-                            .aspectRatio(contentMode: .fill)
+                            .resizable()
+                            .scaledToFill()
                             .frame(width: proxy.size.width, height: proxy.size.height)
                             //                .scaledToFit()
                             .ignoresSafeArea()

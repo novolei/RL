@@ -14,7 +14,7 @@ struct RLApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-               
+                .environmentObject(ImagePicker())
         }
     }
 }

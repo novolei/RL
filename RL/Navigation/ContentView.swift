@@ -8,42 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var model: Model
-    @AppStorage("selectedTab") var selectedTab: Tab = .home
-    @AppStorage("showAccount") var showAccount = false
-    
-    init() {
-        showAccount = false
-    }
+    @ObservedObject var userSessionManager = UserSessionManager.shared
+    @StateObject var model = Model()
     
     var body: some View {
-        ZStack {
-            Group {
-                switch selectedTab {
-                case .home:
-                    Text("Home")
-                case .explore:
-                    Text("Explore")
-                case .notifications:
-                    Text("Notification")
-                case .library:
-                    Text("Lib")
-                }
+        Group {
+            if userSessionManager.user != nil {
+                RootView()
+                    .environmentObject(model)
+            } else {
+                LoginView()
             }
-            .safeAreaInset(edge: .bottom) {
-                VStack {}.frame(height: 44)
-            }
-            
-            TabBar()
-            
-            if model.showModal {
-                ModalView()
-                    .accessibilityIdentifier("Identifier")
-            }
-        }
-        .dynamicTypeSize(.large ... .xxLarge)
-        .sheet(isPresented: $showAccount) {
-            AccountView()
         }
     }
 }
@@ -51,6 +26,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(Model())
     }
 }
