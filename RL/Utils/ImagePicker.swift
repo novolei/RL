@@ -12,6 +12,7 @@ import PhotosUI
 class ImagePicker: ObservableObject {
     @Published var image:Image?
     @Published var images: [Image] = []
+    @Published var uiImage: UIImage?
     
     @Published var imageSelection: PhotosPickerItem? {
         didSet {
@@ -53,6 +54,7 @@ class ImagePicker: ObservableObject {
         do {
             if let data = try await imageSelection?.loadTransferable(type: Data.self)  {
                 if let uiImage = UIImage(data: data){
+                    self.uiImage = uiImage
                     self.image = Image(uiImage: uiImage)
                 }
                 
