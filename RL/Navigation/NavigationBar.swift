@@ -52,12 +52,13 @@ struct NavigationBar: View {
                 
                 Button {
                     withAnimation {
-                        if isLogged {
-                            showAccount = true
-                        } else {
-                            
-                            model.showModal = true
-                        }
+                        showAccount = true
+//                        if isLogged {
+//                            showAccount = true
+//                        } else {
+//                            
+//                            model.showModal = true
+//                        }
                     }
                 } label: {
                     avatar

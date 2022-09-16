@@ -13,11 +13,18 @@ struct ContentView: View {
     
     var body: some View {
         Group {
-            if userSessionManager.user != nil {
+            
+            if userSessionManager.userID == Optional(""){
+               
+                LoginView()
+//                RootView()
+//                    .environmentObject(model)
+                
+            } else {
                 RootView()
                     .environmentObject(model)
-            } else {
-                LoginView()
+               
+               
             }
         }
     }

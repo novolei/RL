@@ -13,12 +13,14 @@
 		310594FE28D07E0500739FFB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310594FD28D07E0500739FFB /* Constant.swift */; };
 		3105950128D08D4C00739FFB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105950028D08D4C00739FFB /* LoginView.swift */; };
 		3105950328D08D6B00739FFB /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105950228D08D6B00739FFB /* AuthViewModel.swift */; };
-		3105950928D0919900739FFB /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105950528D0919900739FFB /* TextArea.swift */; };
-		3105950A28D0919900739FFB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105950628D0919900739FFB /* CustomTextField.swift */; };
-		3105950B28D0919900739FFB /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105950728D0919900739FFB /* LazyView.swift */; };
-		3105950C28D0919900739FFB /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105950828D0919900739FFB /* CustomSecureField.swift */; };
 		3105950E28D09B0500739FFB /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105950D28D09B0500739FFB /* NavigationBarModifier.swift */; };
-		3105951028D0B87800739FFB /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105950F28D0B87800739FFB /* RegisterView.swift */; };
+		3105951228D1849000739FFB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105951128D1849000739FFB /* CustomTextField.swift */; };
+		3105951728D1A6E100739FFB /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105951628D1A6E100739FFB /* RegisterView.swift */; };
+		3105951A28D1A70400739FFB /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105951828D1A70400739FFB /* TextArea.swift */; };
+		3105951B28D1A70400739FFB /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105951928D1A70400739FFB /* LazyView.swift */; };
+		3105951E28D1CE4300739FFB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 3105951D28D1CE4300739FFB /* AlertToast */; };
+		3105952028D215A900739FFB /* testImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105951F28D215A900739FFB /* testImage.swift */; };
+		3105952228D3198D00739FFB /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3105952128D3198D00739FFB /* ImageUploader.swift */; };
 		310C61B028C5E0E4002C17B9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 310C61AF28C5E0E4002C17B9 /* Kingfisher */; };
 		318E601028C5DB5A007B3ADD /* RLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E600F28C5DB5A007B3ADD /* RLApp.swift */; };
 		318E601428C5DB5B007B3ADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 318E601328C5DB5B007B3ADD /* Assets.xcassets */; };
@@ -88,12 +90,13 @@
 		310594FD28D07E0500739FFB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		3105950028D08D4C00739FFB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3105950228D08D6B00739FFB /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		3105950528D0919900739FFB /* TextArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextArea.swift; path = "../../../../../../Downloads/NeptuneBlog-iOS-master/NeptuneBlog-iOS/View/Component/TextArea.swift"; sourceTree = "<group>"; };
-		3105950628D0919900739FFB /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomTextField.swift; path = "../../../../../../Downloads/NeptuneBlog-iOS-master/NeptuneBlog-iOS/View/Component/CustomTextField.swift"; sourceTree = "<group>"; };
-		3105950728D0919900739FFB /* LazyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LazyView.swift; path = "../../../../../../Downloads/NeptuneBlog-iOS-master/NeptuneBlog-iOS/View/Component/LazyView.swift"; sourceTree = "<group>"; };
-		3105950828D0919900739FFB /* CustomSecureField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSecureField.swift; path = "../../../../../../Downloads/NeptuneBlog-iOS-master/NeptuneBlog-iOS/View/Component/CustomSecureField.swift"; sourceTree = "<group>"; };
 		3105950D28D09B0500739FFB /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
-		3105950F28D0B87800739FFB /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterView.swift; path = "../../../../../../../Downloads/NeptuneBlog-iOS-master/NeptuneBlog-iOS/View/Authentication/RegisterView.swift"; sourceTree = "<group>"; };
+		3105951128D1849000739FFB /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		3105951628D1A6E100739FFB /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		3105951828D1A70400739FFB /* TextArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
+		3105951928D1A70400739FFB /* LazyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		3105951F28D215A900739FFB /* testImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testImage.swift; sourceTree = "<group>"; };
+		3105952128D3198D00739FFB /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		318E600C28C5DB5A007B3ADD /* RL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		318E600F28C5DB5A007B3ADD /* RLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLApp.swift; sourceTree = "<group>"; };
 		318E601328C5DB5B007B3ADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B0AE9B28C6EA8500AD6E4E /* ShowTime in Frameworks */,
+				3105951E28D1CE4300739FFB /* AlertToast in Frameworks */,
 				310C61B028C5E0E4002C17B9 /* Kingfisher in Frameworks */,
 				310594EF28D04AA500739FFB /* Appwrite in Frameworks */,
 			);
@@ -177,7 +181,7 @@
 			children = (
 				3105950028D08D4C00739FFB /* LoginView.swift */,
 				3105950228D08D6B00739FFB /* AuthViewModel.swift */,
-				3105950F28D0B87800739FFB /* RegisterView.swift */,
+				3105951628D1A6E100739FFB /* RegisterView.swift */,
 			);
 			path = AuthView;
 			sourceTree = "<group>";
@@ -185,10 +189,10 @@
 		3105950428D0918000739FFB /* Comp */ = {
 			isa = PBXGroup;
 			children = (
-				3105950828D0919900739FFB /* CustomSecureField.swift */,
-				3105950628D0919900739FFB /* CustomTextField.swift */,
-				3105950728D0919900739FFB /* LazyView.swift */,
-				3105950528D0919900739FFB /* TextArea.swift */,
+				3105951928D1A70400739FFB /* LazyView.swift */,
+				3105951828D1A70400739FFB /* TextArea.swift */,
+				3105951128D1849000739FFB /* CustomTextField.swift */,
+				3105951F28D215A900739FFB /* testImage.swift */,
 			);
 			path = Comp;
 			sourceTree = "<group>";
@@ -381,6 +385,7 @@
 				310594FB28D079E800739FFB /* AppWriteService.swift */,
 				310594FD28D07E0500739FFB /* Constant.swift */,
 				3105950D28D09B0500739FFB /* NavigationBarModifier.swift */,
+				3105952128D3198D00739FFB /* ImageUploader.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -415,6 +420,7 @@
 				310C61AF28C5E0E4002C17B9 /* Kingfisher */,
 				31B0AE9A28C6EA8500AD6E4E /* ShowTime */,
 				310594EE28D04AA500739FFB /* Appwrite */,
+				3105951D28D1CE4300739FFB /* AlertToast */,
 			);
 			productName = RL;
 			productReference = 318E600C28C5DB5A007B3ADD /* RL.app */;
@@ -448,6 +454,7 @@
 				310C61AE28C5E0E4002C17B9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				31B0AE9928C6EA8500AD6E4E /* XCRemoteSwiftPackageReference "ShowTime" */,
 				310594ED28D04AA500739FFB /* XCRemoteSwiftPackageReference "sdk-for-apple" */,
+				3105951C28D1CE4300739FFB /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 318E600D28C5DB5A007B3ADD /* Products */;
 			projectDirPath = "";
@@ -480,23 +487,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B0224928C8474100D7F7F1 /* SignupView.swift in Sources */,
-				3105950B28D0919900739FFB /* LazyView.swift in Sources */,
 				31B0226228C8833B00D7F7F1 /* MainEntry.swift in Sources */,
 				31B0225E28C8484600D7F7F1 /* CourseView.swift in Sources */,
 				31B0223128C845ED00D7F7F1 /* CircularView.swift in Sources */,
 				31B0225D28C8484600D7F7F1 /* SectionView.swift in Sources */,
+				3105951A28D1A70400739FFB /* TextArea.swift in Sources */,
+				3105951B28D1A70400739FFB /* LazyView.swift in Sources */,
 				31B0220C28C8454400D7F7F1 /* Sidebar.swift in Sources */,
 				31B0224728C8474100D7F7F1 /* SigninView.swift in Sources */,
 				31B0223D28C846F500D7F7F1 /* CustomFieldModifier.swift in Sources */,
 				31B0220D28C8454400D7F7F1 /* ContentView.swift in Sources */,
 				31B0224628C8474100D7F7F1 /* ModalView.swift in Sources */,
 				31B0221E28C8456100D7F7F1 /* Topic.swift in Sources */,
+				3105952028D215A900739FFB /* testImage.swift in Sources */,
 				31B0226028C84F6600D7F7F1 /* VisualEffectBlur.swift in Sources */,
-				3105951028D0B87800739FFB /* RegisterView.swift in Sources */,
 				31B0225228C8481700D7F7F1 /* SectionRow.swift in Sources */,
-				3105950928D0919900739FFB /* TextArea.swift in Sources */,
 				31B0224528C8474100D7F7F1 /* SearchView.swift in Sources */,
-				3105950C28D0919900739FFB /* CustomSecureField.swift in Sources */,
 				31B0225728C8481700D7F7F1 /* FeaturedItem.swift in Sources */,
 				31B0221728C8456100D7F7F1 /* Model.swift in Sources */,
 				31B0225428C8481700D7F7F1 /* CourseItem.swift in Sources */,
@@ -515,9 +521,11 @@
 				31B0AE9228C6CBCA00AD6E4E /* SwipeNavigationHome.swift in Sources */,
 				31B0227928C8C6D200D7F7F1 /* ImagePicker.swift in Sources */,
 				31B0220A28C8454400D7F7F1 /* TabBar.swift in Sources */,
+				3105951728D1A6E100739FFB /* RegisterView.swift in Sources */,
 				31B0222428C845B200D7F7F1 /* CloseButton.swift in Sources */,
 				31B0225328C8481700D7F7F1 /* HandbookItem.swift in Sources */,
 				318E601028C5DB5A007B3ADD /* RLApp.swift in Sources */,
+				3105951228D1849000739FFB /* CustomTextField.swift in Sources */,
 				31B0222D28C845ED00D7F7F1 /* Wave.swift in Sources */,
 				31B0225628C8481700D7F7F1 /* ListRow.swift in Sources */,
 				310594FE28D07E0500739FFB /* Constant.swift in Sources */,
@@ -527,7 +535,6 @@
 				31B0222628C845B200D7F7F1 /* AngularButton.swift in Sources */,
 				31B0220B28C8454400D7F7F1 /* NavigationBar.swift in Sources */,
 				31B0222E28C845ED00D7F7F1 /* HexagonView.swift in Sources */,
-				3105950A28D0919900739FFB /* CustomTextField.swift in Sources */,
 				31B0225528C8481700D7F7F1 /* SmallCourseItem.swift in Sources */,
 				31B0221928C8456100D7F7F1 /* PreferenceKey.swift in Sources */,
 				31B0AE9428C6CC0000AD6E4E /* LeftView.swift in Sources */,
@@ -536,6 +543,7 @@
 				310594FC28D079E900739FFB /* AppWriteService.swift in Sources */,
 				318E601F28C5DB71007B3ADD /* GestureDemoView.swift in Sources */,
 				31B0221D28C8456100D7F7F1 /* Tab.swift in Sources */,
+				3105952228D3198D00739FFB /* ImageUploader.swift in Sources */,
 				31B0227628C8AF5200D7F7F1 /* UserCellView.swift in Sources */,
 				31B0AE9628C6CC1400AD6E4E /* RightView.swift in Sources */,
 				31B022A428CF23A500D7F7F1 /* RootView.swift in Sources */,
@@ -760,6 +768,14 @@
 				minimumVersion = 0.6.0;
 			};
 		};
+		3105951C28D1CE4300739FFB /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		310C61AE28C5E0E4002C17B9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -783,6 +799,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 310594ED28D04AA500739FFB /* XCRemoteSwiftPackageReference "sdk-for-apple" */;
 			productName = Appwrite;
+		};
+		3105951D28D1CE4300739FFB /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3105951C28D1CE4300739FFB /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 		310C61AF28C5E0E4002C17B9 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

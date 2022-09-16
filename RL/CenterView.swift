@@ -6,7 +6,7 @@ struct CenterView: View {
     var body: some View {
         GeometryReader { bounds in
             VStack(spacing: 10) {
-                Text("test")
+               
                 ScrollView(showsIndicators: false) {
                     VStack{
                         Text("Center")

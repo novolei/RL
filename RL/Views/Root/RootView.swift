@@ -42,46 +42,46 @@ struct RootView: View {
     
     var body: some View {
         ZStack {
-            GeometryReader { proxy in
-                //                KFImage(url)
-                //                    .setProcessor(blackWhite ? BlackWhiteProcessor() : DefaultImageProcessor())
-                //                    .onSuccess { r in
-                //                        print("suc: \(r)")
-                //                    }
-                //                    .onFailure { e in
-                //                        print("err: \(e)")
-                //                    }
-                //                    .placeholder { progress in
-                //                        ProgressView(progress).frame(width: 100, height: 100)
-                //                            .border(Color.green)
-                //                    }
-                //                    // Do not animate for the first image. Otherwise it causes an unwanted animation when the page is shown.
-                //                    .forceTransition(forceTransition)
-                //                    .resizable()
-               
-                if let image = imagePicker.image {
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: proxy.size.width, height: proxy.size.height)
-                        .ignoresSafeArea()
+//            GeometryReader { proxy in
+//                //                KFImage(url)
+//                //                    .setProcessor(blackWhite ? BlackWhiteProcessor() : DefaultImageProcessor())
+//                //                    .onSuccess { r in
+//                //                        print("suc: \(r)")
+//                //                    }
+//                //                    .onFailure { e in
+//                //                        print("err: \(e)")
+//                //                    }
+//                //                    .placeholder { progress in
+//                //                        ProgressView(progress).frame(width: 100, height: 100)
+//                //                            .border(Color.green)
+//                //                    }
+//                //                    // Do not animate for the first image. Otherwise it causes an unwanted animation when the page is shown.
+//                //                    .forceTransition(forceTransition)
+//                //                    .resizable()
+//               
+//                if let image = imagePicker.image {
+//                    image
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: proxy.size.width, height: proxy.size.height)
+////                        .ignoresSafeArea()
+////                        .opacity(0.63)
+//                        .blur(radius: 3)
+//                }
+//                else{
+//                    Image("Background 3")
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: proxy.size.width, height: proxy.size.height)
+//                        //                .scaledToFit()
+//                        .ignoresSafeArea()
 //                        .opacity(0.63)
-                        .blur(radius: 3)
-                }
-                else{
-                    Image("Background 3")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: proxy.size.width, height: proxy.size.height)
-                        //                .scaledToFit()
-                        .ignoresSafeArea()
-                        .opacity(0.63)
-                        .blur(radius: 50)
-                }
-            }
+//                        .blur(radius: 50)
+//                }
+//            }
           
-            VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark)
-                .ignoresSafeArea()
+//            VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark)
+//                .ignoresSafeArea()
             NavigationView {
                 VStack(alignment: .leading, spacing: 0) {
                     TabView(selection: $currentTab) {
@@ -116,7 +116,7 @@ struct RootView: View {
 //                    .navigationBarTitle(itemType.title, displayMode: .inline)
                     
                     .navigationBarItems(trailing: itemType.navigationBarTrailingItems(selection: selection))
-                    
+                    .background(Color.clear)
                     .safeAreaInset(edge: .bottom, spacing: 0) {
                         VStack(alignment: .leading, spacing: 0) {
                             HStack(spacing: 0) {
@@ -158,8 +158,10 @@ struct RootView: View {
                     }
                 }
             }
+            .ignoresSafeArea()
             .navigationBarTitle(tabTitle, displayMode: .inline)
         }
+        
     }
 }
 

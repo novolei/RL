@@ -13,6 +13,7 @@ struct AccountView: View {
     @ObservedObject var updates = Updates() // If StateObject doesn't update the view, use ObservedObject
     
     @Environment(\.presentationMode) var presentationMode
+    let authViewModel = AuthViewModel.shared
     @AppStorage("isLogged") var isLogged = false
     @AppStorage("isLiteMode") var isLiteMode = true
     @State var address: Address = Address(id: 1, country: "Canada")
@@ -55,7 +56,11 @@ struct AccountView: View {
                 }
                 .tint(.red)
                 .onTapGesture {
-                    isLogged = false
+//                    isLogged = false
+                    Task {
+                        try await authViewModel.signout()
+                    }
+                    
                     presentationMode.wrappedValue.dismiss()
                 }
             }

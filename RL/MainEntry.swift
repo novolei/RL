@@ -31,6 +31,10 @@ struct MainEntry: View {
         URL(string: "https://t7.baidu.com/it/u=1951548898,3927145&fm=193&f=GIF")!
     }
 
+    init() {
+        showAccount = false
+    }
+    
     var chatType: String = "Friend"
     @State var selectIdx: Int32 = -1
     var body: some View {
@@ -57,21 +61,24 @@ struct MainEntry: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: proxy.size.width, height: proxy.size.height)
-                            //                .scaledToFit()
-                            .ignoresSafeArea()
-                            .opacity(0.63)
-                            .blur(radius: 50)
+//                            .ignoresSafeArea()
+    //                        .opacity(0.63)
+                            .blur(radius: 3)
                     } else {
-                        Image("Background 3")
+                        Image("bk1")
                             .resizable()
                             .scaledToFill()
                             .frame(width: proxy.size.width, height: proxy.size.height)
+                            
+                            
+                            
                             //                .scaledToFit()
-                            .ignoresSafeArea()
-                            .opacity(0.63)
-                            .blur(radius: 50)
+//                            .ignoresSafeArea()
+//                            .opacity(0.63)
+                            .blur(radius: 3)
                     }
-                }
+                }.ignoresSafeArea()
+                
 
                 VisualEffectBlur(blurStyle: .systemUltraThinMaterialDark)
                     .ignoresSafeArea()

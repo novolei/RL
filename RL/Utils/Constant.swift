@@ -11,6 +11,8 @@ struct Constant {
     
     static let AUTH_USER_KEY = "user"
     
+    static let AUTH_USERID_KEY = "userID"
+    
     static let PAGE_LIMIT = 20
     
     static let AP_SHARED = AppwriteService.shared
