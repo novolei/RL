@@ -20,6 +20,7 @@ class AppwriteService: ObservableObject {
         .setSelfSigned(true)
     
     let database: Databases
+    let function: Functions
     let account: Account
     let storage: Storage
     let avatars: Avatars
@@ -29,11 +30,11 @@ class AppwriteService: ObservableObject {
     
     init() {
         database = Databases(client, databaseId)
+        function = Functions(client)
         account = Account(client)
         storage = Storage(client)
         avatars = Avatars(client)
         realtime = Realtime(client)
-        
     }
     
 }

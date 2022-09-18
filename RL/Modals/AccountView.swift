@@ -14,9 +14,10 @@ struct AccountView: View {
     
     @Environment(\.presentationMode) var presentationMode
     let authViewModel = AuthViewModel.shared
+    
     @AppStorage("isLogged") var isLogged = false
     @AppStorage("isLiteMode") var isLiteMode = true
-    @State var address: Address = Address(id: 1, country: "Canada")
+    @State var address: Address = .init(id: 1, country: "Canada")
     
     var body: some View {
         NavigationView {
@@ -24,7 +25,6 @@ struct AccountView: View {
                 Section {
                     profile
                 }
-                
                 Section {
                     NavigationLink {} label: {
                         Label("Settings", systemImage: "gear")

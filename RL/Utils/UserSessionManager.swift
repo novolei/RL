@@ -8,19 +8,58 @@
 import Appwrite
 import Foundation
 
+public extension UserDefaults {
+    static let shared = UserDefaults(suiteName: "group.com.RL.messages")!
+}
+
 class UserSessionManager: ObservableObject {
     static let shared = UserSessionManager()
     private let userDefaults = UserDefaults.standard
+    private let userMessages = UserDefaults.shared
     
-    @Published var checkedForUser = false
     @Published var user: User?
+    @Published var chat_user: ChatUser?
     @Published var userID: String?
+    @Published var session: Session?
+    @Published var messages: [String]?
     
     init() {
 //        user = getCurrentUser()
         userID = getCurrentUserID()
-       
     }
+    
+   
+    
+    private func setMessages(data: [String], collectionID: String) {
+        userMessages.set(data, forKey: collectionID)
+    }
+    
+    public func getMessages(collectionID: String) -> [String]? {
+        guard let data = userMessages.object(forKey: collectionID) else { return nil }
+        messages = (data as! [String])
+        
+        return messages
+    }
+
+    private func setSession(session: Session) {
+        userDefaults.set(session.toMap(), forKey: Constant.SESSION_KEY)
+    }
+    
+    public func getSession() -> Session? {
+        guard let data = userDefaults.object(forKey: Constant.SESSION_KEY) else { return nil }
+        session = Session.from(map: data as! [String: Any])
+        return session
+    }
+    
+    private func readPrivateKey() -> String? {
+        guard let data = userDefaults.string(forKey: Constant.SESSION_KEY) else { return nil }
+        return data
+    }
+    
+    private func deleteSession()  {
+        userDefaults.removeObject(forKey: Constant.SESSION_KEY)
+    }
+    
     
     private func getCurrentUserID() -> String {
         if userID == nil {
@@ -36,6 +75,23 @@ class UserSessionManager: ObservableObject {
         }
         
         return userID!
+    }
+    
+     func getChatUser() -> ChatUser? {
+        if chat_user == nil {
+            if let data = userDefaults.object(forKey: Constant.CHAT_USER_KEY) as! ChatUser? {
+                chat_user = data
+                    
+            } else {
+                print("Nil chat user found")
+                return nil
+            }
+        }
+        return chat_user
+    }
+    
+    func saveChatUser(user: ChatUser) {
+        userDefaults.set(user, forKey: Constant.CHAT_USER_KEY)
     }
 
     private func getCurrentUser() -> User? {

@@ -9,8 +9,7 @@ import SwiftUI
 
 @main
 struct RLApp: App {
-    
-    
+        
     var body: some Scene {
         WindowGroup {
             ContentView()

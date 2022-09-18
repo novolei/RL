@@ -22,6 +22,7 @@ class AuthViewModel: ObservableObject {
     @AppStorage("userID") var userID: String = ""
     @Published var didAuthUser: Bool = false
     @Published var didLogin: Bool = false
+    @Published var sessionID: String = ""
     
     @Published var errorMsg: String? = ""
     
@@ -65,6 +66,7 @@ class AuthViewModel: ObservableObject {
             let session = try await Constant.AP_SHARED.account.createEmailSession(email: email, password: password)
 //            try await getAccount()
             self.didLogin = true
+            self.sessionID = session.id
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
                 withAnimation {
                     //userID = session.userId
@@ -81,13 +83,14 @@ class AuthViewModel: ObservableObject {
     public func signout() async throws {
         do {
             
-            _ = try await Constant.AP_SHARED.account.deleteSessions()
+//            _ = try await Constant.AP_SHARED.account.deleteSessions()
+            _ = try await Constant.AP_SHARED.account.deleteSession(sessionId: sessionID)
             userSessionManager.removeUser()
             self.didLogin = false
             self.didAuthUser = false
         } catch {
-            userSessionManager.removeUser()
-//            print("DEBUG:\(self.userSessionManager.userID! )")
+            //userSessionManager.removeUser()
+            print("DEBUG:\(self.userSessionManager.userID! )")
         }
     }
     
