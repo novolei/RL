@@ -18,11 +18,12 @@ class UserSessionManager: ObservableObject {
     private let userMessages = UserDefaults.shared
     
     @Published var user: User?
+    @Published var session: Session?
     @Published var chat_user: ChatUser?
     @Published var userID: String?
-    @Published var session: Session?
     @Published var messages: [String]?
-    
+
+
     init() {
 //        user = getCurrentUser()
         userID = getCurrentUserID()
@@ -30,15 +31,20 @@ class UserSessionManager: ObservableObject {
     
    
     
+    /// Description
+    /// - Parameters:
+    ///   - data: <#data description#>
+    ///   - collectionID: <#collectionID description#>
     private func setMessages(data: [String], collectionID: String) {
         userMessages.set(data, forKey: collectionID)
+        
     }
     
     public func getMessages(collectionID: String) -> [String]? {
-        guard let data = userMessages.object(forKey: collectionID) else { return nil }
-        messages = (data as! [String])
+        guard let data = userMessages.object(forKey: collectionID) else { return nil }//test
+        messages = (data as! [String])//t
         
-        return messages
+        return messages//
     }
 
     private func setSession(session: Session) {
