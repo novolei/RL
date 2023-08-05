@@ -27,7 +27,7 @@ struct RootView: View {
     let discoverView = Text("Discover")
     let meView = Text("Me View")
     
-    var tabTitle: String {
+    var tabTitleName: String {
         switch currentTab {
         case .Home:
             return "Home"
@@ -125,7 +125,7 @@ struct RootView: View {
                                     Button {
                                         // updating tab...
                                         currentTab = tab
-                                        print("select index is \(tabTitle)")
+                                        print("select index is \(tabTitleName)")
                                     } label: {
                                         Image(tab.rawValue)
                                             .resizable()
@@ -159,7 +159,7 @@ struct RootView: View {
                 }
             }
             .ignoresSafeArea()
-            .navigationBarTitle(tabTitle, displayMode: .inline)
+            .navigationBarTitle(tabTitleName, displayMode: .inline)
         }
         
     }
