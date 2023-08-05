@@ -35,7 +35,7 @@ struct SigninView: View {
         .coordinateSpace(name: "stack")
         .padding(20)
         .padding(.vertical, 20)
-        .background(.ultraThinMaterial)
+        .background(Color("Purple"))
         .backgroundColor(opacity: 0.4)
         .cornerRadius(30)
         .background(
